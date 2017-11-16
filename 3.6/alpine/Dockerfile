@@ -1,7 +1,8 @@
-FROM alpine:3.6
+FROM goodrainapps/alpine:3.6
 
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
-RUN addgroup -S rabbitmq && adduser -S -h /var/lib/rabbitmq -G rabbitmq rabbitmq
+RUN sed -i -r 's/nofiles/rabbitmq/' /etc/group && \
+    adduser -u 200 -h /var/lib/rabbitmq -D -S -G rabbitmq rabbitmq
 
 # grab su-exec for easy step-down from root
 RUN apk add --no-cache 'su-exec>=0.2'
