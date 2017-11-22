@@ -73,6 +73,7 @@ RUN set -ex; \
 	grep -qE '^SYS_PREFIX=$' "$RABBITMQ_HOME/sbin/rabbitmq-defaults"; \
 	\
 	apk del .build-deps
+	
 
 # set home so that any `--user` knows where to put the erlang cookie
 ENV HOME /var/lib/rabbitmq
