@@ -35,7 +35,7 @@ ENV RABBITMQ_HOME /opt/rabbitmq
 ENV PATH $RABBITMQ_HOME/sbin:$PATH
 
 # gpg: key 6026DFCA: public key "RabbitMQ Release Signing Key <info@rabbitmq.com>" imported
-ENV RABBITMQ_GPG_KEY 0A9AF2115F4687BD29803A206B73A36E6026DFCA
+# ENV RABBITMQ_GPG_KEY 0A9AF2115F4687BD29803A206B73A36E6026DFCA
 
 ENV RABBITMQ_VERSION 3.6.14
 ENV RABBITMQ_GITHUB_TAG rabbitmq_v3_6_14
@@ -49,12 +49,12 @@ RUN set -ex; \
 		xz \
 	; \
 	\
-	wget -O rabbitmq-server.tar.xz.asc "https://github.com/rabbitmq/rabbitmq-server/releases/download/$RABBITMQ_GITHUB_TAG/rabbitmq-server-generic-unix-${RABBITMQ_VERSION}.tar.xz.asc"; \
+	# wget -O rabbitmq-server.tar.xz.asc "https://github.com/rabbitmq/rabbitmq-server/releases/download/$RABBITMQ_GITHUB_TAG/rabbitmq-server-generic-unix-${RABBITMQ_VERSION}.tar.xz.asc"; \
 	wget -O rabbitmq-server.tar.xz     "https://github.com/rabbitmq/rabbitmq-server/releases/download/$RABBITMQ_GITHUB_TAG/rabbitmq-server-generic-unix-${RABBITMQ_VERSION}.tar.xz"; \
 	\
 	export GNUPGHOME="$(mktemp -d)"; \
-	gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$RABBITMQ_GPG_KEY"; \
-	gpg --batch --verify rabbitmq-server.tar.xz.asc rabbitmq-server.tar.xz; \
+	# gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$RABBITMQ_GPG_KEY"; \
+	# gpg --batch --verify rabbitmq-server.tar.xz.asc rabbitmq-server.tar.xz; \
 	rm -rf "$GNUPGHOME"; \
 	\
 	mkdir -p "$RABBITMQ_HOME"; \
