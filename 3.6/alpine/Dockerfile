@@ -112,7 +112,7 @@ RUN set -eux; \
 	apk add --no-cache python; \
 	rabbitmqadmin --version
 
-COPY docker-entrypoint.sh /usr/local/bin/
+COPY 3.6/alpine/docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 4369 5671 5672 25672 15671 15672
