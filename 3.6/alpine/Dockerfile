@@ -50,7 +50,7 @@ RUN set -ex; \
 	; \
 	\
 	# wget -O rabbitmq-server.tar.xz.asc "https://github.com/rabbitmq/rabbitmq-server/releases/download/$RABBITMQ_GITHUB_TAG/rabbitmq-server-generic-unix-${RABBITMQ_VERSION}.tar.xz.asc"; \
-	wget -O rabbitmq-server.tar.xz     "https://github.com/rabbitmq/rabbitmq-server/releases/download/$RABBITMQ_GITHUB_TAG/rabbitmq-server-generic-unix-${RABBITMQ_VERSION}.tar.xz"; \
+	wget -O rabbitmq-server.tar.xz     "http://goodrain-pkg.oss-cn-shanghai.aliyuncs.com/rabbitmq/rabbitmq-server-generic-unix-${RABBITMQ_VERSION}.tar.xz"; \
 	\
 	export GNUPGHOME="$(mktemp -d)"; \
 	# gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$RABBITMQ_GPG_KEY"; \
