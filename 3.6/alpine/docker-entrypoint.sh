@@ -1,7 +1,13 @@
 #!/bin/bash
 set -eu
 
-[ $DEBUG ] && set -x
+if [ $DEBUG ];then
+set -x
+fi
+
+# add rainbond init user info
+RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER:-RBMQ_USER}
+RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS:-RBMQ_PASS}
 
 # usage: file_env VAR [DEFAULT]
 #    ie: file_env 'XYZ_DB_PASSWORD' 'example'
