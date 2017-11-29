@@ -115,5 +115,5 @@ RUN set -eux; \
 COPY 3.6/alpine/docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 
-EXPOSE 4369 5671 5672 25672 15671 15672
+EXPOSE 5672 15672
 CMD ["rabbitmq-server"]
